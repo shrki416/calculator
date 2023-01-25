@@ -5,9 +5,58 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <div id="app"></div>
+    <div class="wrapper">
+      <header>
+        <h1>calc</h1>
+        <div class="theme-container">
+          <fieldset>
+            <legend>Theme</legend>
+            <label>
+              <input type="radio" name="theme" value="1" checked />
+              1
+            </label>
+            <label>
+              <input type="radio" name="theme" value="2" />
+              2
+            </label>
+            <label>
+              <input type="radio" name="theme" value="3" />
+              3
+            </label>
+          </fieldset>
+        </div>
+      </header>
+      <div class="display">399,981</div>
+      <div class="button-container">
+        <button data-number>7</button>
+        <button data-number>8</button>
+        <button data-number>9</button>
+        <button>DEL</button>
+        <button data-number>4</button>
+        <button data-number>5</button>
+        <button data-number>6</button>
+        <button>+</button>
+        <button data-number>1</button>
+        <button data-number>2</button>
+        <button data-number>3</button>
+        <button>-</button>
+        <button>.</button>
+        <button data-number>0</button>
+        <button>/</button>
+        <button>x</button>
+        <button class="two">RESET</button>
+        <button class="two">=</button>
+      </div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
