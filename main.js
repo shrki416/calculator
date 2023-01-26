@@ -1,13 +1,19 @@
 const display = document.querySelector(".display");
 const numberBtns = document.querySelectorAll("[data-number]");
 const operatorBtns = document.querySelectorAll("[data-operator]");
-const resetBtn = document.querySelector("[data-reset]");
-const deleteBtn = document.querySelector("[data-delete]");
-const equalBtn = document.querySelector("[data-equal]");
 
 let num1 = "";
 let num2 = "";
 let operator = "";
+
+const resetBtn = document.querySelector("[data-reset]");
+resetBtn.addEventListener("click", reset);
+
+const deleteBtn = document.querySelector("[data-delete]");
+deleteBtn.addEventListener("click", handleDelete);
+
+const equalBtn = document.querySelector("[data-equal]");
+equalBtn.addEventListener("click", calculate);
 
 numberBtns.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -45,7 +51,6 @@ operatorBtns.forEach((button) => {
   });
 });
 
-resetBtn.addEventListener("click", reset);
 function reset() {
   num1 = "";
   num2 = "";
@@ -54,22 +59,19 @@ function reset() {
   console.log({ num1, num2, operator });
 }
 
-deleteBtn.addEventListener("click", HandleDelete);
-function HandleDelete() {
+function handleDelete() {
   if (display.textContent === "0") return;
 
   display.textContent = display.textContent.slice(0, -1);
 
-  operator
-    ? (num2 = num2.length === 1 ? (num2 = 0) : (num2 = num2.slice(0, -1)))
-    : (num1 = num1.length === 1 ? (num1 = 0) : (num1 = num1.slice(0, -1)));
+  operator ? (num2 = num2.slice(0, -1)) : (num1 = num1.slice(0, -1));
 
-  if (display.textContent.length === 1) {
+  if (display.textContent.length === 0) {
     display.textContent = "0";
+    if (!num1) num1 = "0";
   }
 }
 
-equalBtn.addEventListener("click", calculate);
 function calculate() {
   num1 = Number(num1);
   num2 = Number(num2);
@@ -90,7 +92,9 @@ function calculate() {
       result = num1 / num2;
       break;
   }
-  display.textContent = result;
-  num1 = result;
+  num1 = result.toString();
   num2 = "";
+  operator = "";
+  display.textContent = result;
+  console.log({ num1, num2, operator });
 }
