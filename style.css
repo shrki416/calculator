@@ -165,11 +165,31 @@ header {
 .button-container > button {
   border-radius: var(--border-radius);
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  background-color: var(--theme-1-button-primary);
+  color: var(--theme-1-button-text);
+  box-shadow: inset 0px -4px 0px var(--theme-1-button-primary-shadow);
 }
 
 .button-container > button:hover {
-  background-color: rgba(250, 128, 114);
+  cursor: pointer;
+  background-color: var(--white);
+}
+
+.button-container > button.accent {
+  background-color: var(--theme-1-button-secondary);
+  box-shadow: inset 0px -4px 0px var(--theme-1-button-secondary-shadow);
+  color: var(--white);
+}
+
+.button-container > button.accent:hover {
+
+}
+
+.button-container > button.equal {
+  background-color: var(--theme-1-button-accent);
+  box-shadow: inset 0px -4px 0px var(--theme-1-button-accent-shadow);
+  color: var(--white);
 }
 
 .two {
