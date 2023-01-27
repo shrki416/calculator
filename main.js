@@ -1,6 +1,4 @@
 const display = document.querySelector(".display");
-const numberBtns = document.querySelectorAll("[data-number]");
-const operatorBtns = document.querySelectorAll("[data-operator]");
 
 let num1 = "";
 let num2 = "";
@@ -15,41 +13,47 @@ deleteBtn.addEventListener("click", handleDelete);
 const equalBtn = document.querySelector("[data-equal]");
 equalBtn.addEventListener("click", calculate);
 
+const numberBtns = document.querySelectorAll("[data-number]");
 numberBtns.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    const number = e.target.textContent;
-
-    if (display.textContent.includes(".") && number === ".") {
-      return;
-    }
-
-    if (display.textContent === "0") {
-      display.textContent = number;
-    }
-
-    if (operator) {
-      num2 += number;
-      display.textContent = num2;
-    } else {
-      num1 += number;
-      display.textContent = num1;
-    }
-
-    console.log({ num1, num2, operator });
-  });
+  button.addEventListener("click", (e) => handleNumberBtns(e));
 });
 
+const operatorBtns = document.querySelectorAll("[data-operator]");
 operatorBtns.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    if (display.textContent === "") return;
-
-    if (num1 && num2) calculate();
-
-    operator = e.target.textContent;
-    display.textContent = num1;
-    num2 = "";
-  });
+  button.addEventListener("click", (e) => handleOperatorBtns(e));
 });
+
+function handleNumberBtns(e) {
+  const number = e.target.textContent;
+
+  if (display.textContent.includes(".") && number === ".") {
+    return;
+  }
+
+  if (display.textContent === "0") {
+    display.textContent = number;
+  }
+
+  if (operator) {
+    num2 += number;
+    display.textContent = num2;
+  } else {
+    num1 += number;
+    display.textContent = num1;
+  }
+
+  console.log({ num1, num2, operator });
+}
+
+function handleOperatorBtns(e) {
+  if (display.textContent === "") return;
+
+  if (num1 && num2) calculate();
+
+  operator = e.target.textContent;
+  display.textContent = num1;
+  num2 = "";
+}
 
 function reset() {
   num1 = "";
@@ -73,6 +77,8 @@ function handleDelete() {
 }
 
 function calculate() {
+  if (!num1 || !num2 || !operator) return;
+
   num1 = Number(num1);
   num2 = Number(num2);
 
@@ -97,4 +103,10 @@ function calculate() {
   operator = "";
   display.textContent = result;
   console.log({ num1, num2, operator });
+}
+
+function formatNumber(number) {
+  return Intl.NumberFormat("en-US", {
+    style: "decimal",
+  }).format(number);
 }

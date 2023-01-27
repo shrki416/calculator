@@ -8,8 +8,10 @@
   --theme-1-button-primary-shadow: hsl(28 16% 65%);
   --theme-1-button-secondary: hsl(225 21% 49%);
   --theme-1-button-secondary-shadow: hsl(224 28% 35%);
+  --theme-1-button-secondary-hover: hsl(225, 51%, 76%);
   --theme-1-button-accent: hsl(6 63% 50%);
   --theme-1-button-accent-shadow: hsl(6 70% 34%);
+  --theme-1-button-accent-hover: hsl(6, 93%, 67%);
   --theme-1-button-text: hsl(221 14% 31%);
 
   --theme-2-main-bg: hsl(0 0% 90%);
@@ -137,6 +139,13 @@ h1 {
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 .display {
@@ -176,20 +185,24 @@ header {
   background-color: var(--white);
 }
 
-.button-container > button.accent {
+.button-container > button.secondary {
   background-color: var(--theme-1-button-secondary);
   box-shadow: inset 0px -4px 0px var(--theme-1-button-secondary-shadow);
   color: var(--white);
 }
 
-.button-container > button.accent:hover {
-
+.button-container > button.secondary:hover {
+  background-color: var(--theme-1-button-secondary-hover);
 }
 
 .button-container > button.equal {
   background-color: var(--theme-1-button-accent);
   box-shadow: inset 0px -4px 0px var(--theme-1-button-accent-shadow);
   color: var(--white);
+}
+
+.button-container > button.equal:hover {
+  background-color: var(--theme-1-button-accent-hover);
 }
 
 .two {
@@ -200,4 +213,23 @@ header {
   .button-container {
     gap: 1.5rem;
   }
+}
+
+.visually-hidden {
+  display: inline-block;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.theme-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
