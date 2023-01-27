@@ -251,6 +251,31 @@ fieldset {
   padding: 3px;
 }
 
+.radio-group {
+  background-color: var(--theme-1-keypad-bg);
+  border-radius: 1rem;
+  cursor: pointer;
+  padding: 1px 5px;
+}
+
 input[type='radio'] {
-  margin: 3px 3px 0px 5px;
+  margin: 0;
+  /* remove defaults */
+  position: absolute;
+  opacity: 0;
+  /* remove defaults */
+}
+
+input[type="radio"]+label::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  border-radius: 50%;
+  margin-top: 3px;
+}
+
+input[type='radio']:checked  + label::before {
+  background-color: var(--theme-1-button-accent);
+  cursor: pointer;
 }
