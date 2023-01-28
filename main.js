@@ -110,3 +110,28 @@ function formatNumber(number) {
     style: "decimal",
   }).format(number);
 }
+
+const themeInputs = document.querySelectorAll("input[name='theme']");
+
+function saveTheme(theme) {
+  localStorage.setItem("theme", theme);
+}
+
+function setTheme() {
+  const currentTheme = localStorage.getItem("theme");
+  for (const theme of themeInputs) {
+    if (theme.id === currentTheme) {
+      theme.checked = true;
+    }
+  }
+  // fallback for no :has() browser support
+  document.documentElement.className = currentTheme;
+}
+
+for (const theme of themeInputs) {
+  theme.addEventListener("click", (e) => {
+    saveTheme(theme.id);
+    // fallback for no :has() browser support
+    document.documentElement.className = theme.id;
+  });
+}
