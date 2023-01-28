@@ -46,7 +46,8 @@
 
 #dark {
   --main-bg: hsl(268 75% 9%);
-  --toggle-keypad-display-bg: hsl(268 71% 12%);
+  --keypad-bg: hsl(268 71% 12%);
+  --display-bg: hsl(268 71% 12%);
   --button-primary: hsl(268 47% 21%);
   --button-primary-shadow: hsl(290 70% 36%);
   --button-secondary: hsl(281 89% 26%);
@@ -59,7 +60,8 @@
 
 :root:has(#dark:checked) {
   --main-bg: hsl(268 75% 9%);
-  --toggle-keypad-display-bg: hsl(268 71% 12%);
+  --keypad-bg: hsl(268 71% 12%);
+  --display-bg: hsl(268 71% 12%);
   --button-primary: hsl(268 47% 21%);
   --button-primary-shadow: hsl(290 70% 36%);
   --button-secondary: hsl(281 89% 26%);
@@ -203,6 +205,7 @@ fieldset {
 
 .button-container > button {
   border-radius: var(--border-radius);
+  border: none;
   cursor: pointer;
   font-size: 2rem;
   background-color: var(--button-primary);
