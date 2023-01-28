@@ -166,7 +166,7 @@ fieldset {
   display: grid;
   justify-content: center;
   align-content: center;
-  grid-template-columns: repeat(4, 6.5rem);
+  grid-template-columns: repeat(4, minmax(4rem, 6.5rem));
   grid-template-rows: minmax(4rem, auto) repeat(4, 4rem);
   gap: 0.8125rem;
 }
