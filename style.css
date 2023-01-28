@@ -230,7 +230,8 @@ fieldset {
 .theme-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 5px;
+  row-gap: 5px;
+  column-gap: 20px;
 }
 
 .theme-container h2 {
@@ -239,7 +240,7 @@ fieldset {
   text-transform: uppercase;
   font-size: 0.75rem;
   color: var(--white);
-  margin-bottom: 5px;
+  margin: 0 0 5px auto;
 }
 
 .flex-group {
