@@ -6,6 +6,7 @@
   --display-bg: hsl(224 36% 15%);
   --button-primary: hsl(30 25% 89%);
   --button-primary-shadow: hsl(28 16% 65%);
+  --button-primary-hover: hsl(0 0% 100%);
   --button-secondary: hsl(225 21% 49%);
   --button-secondary-shadow: hsl(224 28% 35%);
   --button-secondary-hover: hsl(225, 51%, 76%);
@@ -13,22 +14,10 @@
   --button-accent-shadow: hsl(6 70% 34%);
   --button-accent-hover: hsl(6, 93%, 67%);
   --button-text: hsl(221 14% 31%);
+  --button-text-accent: hsl(0 0% 100%);
 
   --ff-regular: "League Spartan", sans-serif;
   --fw-bold: 700;
-}
-
-#light {
-  --main-bg: hsl(0 0% 90%);
-  --keypad-bg: hsl(0 5% 81%);
-  --display-bg: hsl(0 0% 93%);
-  --button-primary: hsl(45 7% 89%);
-  --button-primary-shadow: hsl(35 11% 61%);
-  --button-secondary: hsl(185 42% 37%);
-  --button-secondary-shadow: hsl(185 58% 25%);
-  --button-accent: hsl(25 98% 40%);
-  --button-accent-shadow: hsl(25 99% 27%);
-  --button-text: hsl(60 10% 19%);
 }
 
 :root:has(#light:checked) {
@@ -37,25 +26,15 @@
   --display-bg: hsl(0 0% 93%);
   --button-primary: hsl(45 7% 89%);
   --button-primary-shadow: hsl(35 11% 61%);
+  --button-primary-hover: hsl(0 0% 100%);
   --button-secondary: hsl(185 42% 37%);
   --button-secondary-shadow: hsl(185 58% 25%);
+  --button-secondary-hover: hsl(185, 40%, 56%);
   --button-accent: hsl(25 98% 40%);
   --button-accent-shadow: hsl(25 99% 27%);
+  --button-accent-hover: hsl(25, 100%, 61%);
   --button-text: hsl(60 10% 19%);
-}
-
-#dark {
-  --main-bg: hsl(268 75% 9%);
-  --keypad-bg: hsl(268 71% 12%);
-  --display-bg: hsl(268 71% 12%);
-  --button-primary: hsl(268 47% 21%);
-  --button-primary-shadow: hsl(290 70% 36%);
-  --button-secondary: hsl(281 89% 26%);
-  --button-secondary-shadow: hsl(285 91% 52%);
-  --button-accent: hsl(176 100% 44%);
-  --button-accent-shadow: hsl(177 92% 70%);
-  --button-text: hsl(52 100% 62%);
-  --button-text-accent: hsl(198 20% 13%);
+  --button-text-accent: hsl(60 10% 19%);
 }
 
 :root:has(#dark:checked) {
@@ -64,12 +43,15 @@
   --display-bg: hsl(268 71% 12%);
   --button-primary: hsl(268 47% 21%);
   --button-primary-shadow: hsl(290 70% 36%);
+  --button-primary-hover: hsl(285 91% 52%);
   --button-secondary: hsl(281 89% 26%);
-  --button-secondary-shadow: hsl(285 91% 52%);
+  --button-secondary-shadow: hsl(290 70% 36%);
+  --button-secondary-hover: hsl(285 91% 52%);
   --button-accent: hsl(176 100% 44%);
   --button-accent-shadow: hsl(177 92% 70%);
+  --button-accent-hover: hsl(176, 100%, 79%);
   --button-text: hsl(52 100% 62%);
-  --button-text-accent: hsl(198 20% 13%);
+  --button-text-accent: hsl(52 100% 62%);
 }
 
 /*
@@ -158,7 +140,7 @@ body {
 }
 
 h1 {
-  color: var(--white);
+  color: var(--button-text-accent);
   line-height: 2.25rem;
   letter-spacing: -0.5px;
 }
@@ -187,7 +169,7 @@ fieldset {
   margin-top: 32px;
   font-size: 3rem;
   background-color: var(--display-bg);
-  color: var(--white);
+  color: var(--button-text-accent);
 }
 
 .button-container {
@@ -215,7 +197,7 @@ fieldset {
 
 .button-container > button:hover {
   cursor: pointer;
-  background-color: var(--white);
+  background-color: var(--button-primary-hover);
 }
 
 .button-container > button.secondary {
@@ -272,7 +254,7 @@ fieldset {
   align-self: end;
   text-transform: uppercase;
   font-size: 0.75rem;
-  color: var(--white);
+  color: var(--button-text-accent);
   margin: 0 0 5px auto;
 }
 
@@ -281,7 +263,7 @@ fieldset {
   justify-content: space-around;
   align-items: center;
   gap: 6px;
-  color: var(--white);
+  color: var(--button-text-accent);
   font-size: 0.75rem;
   padding: 3px;
 }
@@ -289,7 +271,6 @@ fieldset {
 .radio-group {
   background-color: var(--keypad-bg);
   border-radius: 1rem;
-  cursor: pointer;
   padding: 1px 5px;
 }
 
@@ -304,5 +285,8 @@ input[type="radio"] + label::before {
 
 input[type="radio"]:checked + label::before {
   background-color: var(--button-accent);
+}
+
+.radio-group, input[type="radio"]:checked+label::before, label {
   cursor: pointer;
 }
