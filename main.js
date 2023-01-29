@@ -1,3 +1,5 @@
+import { saveTheme } from "./utils";
+
 const display = document.querySelector(".display");
 
 let num1 = "";
@@ -105,17 +107,7 @@ function calculate() {
   console.log({ num1, num2, operator });
 }
 
-function formatNumber(number) {
-  return Intl.NumberFormat("en-US", {
-    style: "decimal",
-  }).format(number);
-}
-
 const themeInputs = document.querySelectorAll("input[name='theme']");
-
-function saveTheme(theme) {
-  localStorage.setItem("theme", theme);
-}
 
 function setTheme() {
   const currentTheme = localStorage.getItem("theme");
@@ -124,14 +116,12 @@ function setTheme() {
       theme.checked = true;
     }
   }
-  // fallback for no :has() browser support
-  document.documentElement.className = currentTheme;
 }
 
 for (const theme of themeInputs) {
   theme.addEventListener("click", (e) => {
     saveTheme(theme.id);
-    // fallback for no :has() browser support
-    document.documentElement.className = theme.id;
   });
 }
+
+setTheme();
