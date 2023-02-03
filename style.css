@@ -195,6 +195,21 @@ fieldset {
   box-shadow: inset 0px -4px 0px var(--button-primary-shadow);
 }
 
+@media (max-width: 375px) {
+  .wrapper {
+    padding: 1rem;
+  }
+
+  .button-container {
+    grid-template-columns: repeat(4, 3rem);
+    grid-template-rows: repeat(5, 3rem);
+  }
+
+  .button-container > button {
+    font-size: 1.5rem;
+  }
+}
+
 .button-container > button:hover {
   cursor: pointer;
   background-color: var(--button-primary-hover);
