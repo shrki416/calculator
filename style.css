@@ -133,7 +133,8 @@ h6 {
 
 body {
   display: grid;
-  place-content: center;
+  place-items: center;
+  align-content: center;
   font-family: var(--ff-regular);
   font-weight: var(--fw-bold);
   background-color: var(--main-bg);
