@@ -50,6 +50,8 @@ function handleNumberBtns(e) {
 function handleOperatorBtns(e) {
   if (display.textContent === "") return;
 
+  if (display.textContent === "0") num1 = "0";
+
   if (num1 && num2) calculate();
 
   operator = e.target.textContent;
