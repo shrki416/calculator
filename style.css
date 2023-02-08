@@ -133,7 +133,7 @@ h6 {
 
 body {
   display: grid;
-  place-items: center;
+  place-content: center;
   font-family: var(--ff-regular);
   font-weight: var(--fw-bold);
   background-color: var(--main-bg);
@@ -141,7 +141,6 @@ body {
 
 h1 {
   color: var(--button-text-accent);
-  /* line-height: 2.25rem; */
   letter-spacing: -0.5px;
 }
 
